@@ -1,0 +1,40 @@
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+.top-bar {
+	background-color: black;
+	font-family: calibri;
+	height: 65px;
+	overflow: hidden;
+}
+
+.top-bar-item {
+	display: inline-block;
+	color: white;
+	text-decoration: none;
+	vertical-align: middle;
+}
+
+.right-side-item {
+	float: right;
+	margin: 10px;
+	padding: 10px;
+	
+}
+
+.home-button {
+	margin: 10px;
+	font-size: 30px;
+}
+
+#sign-up-button {
+	border-radius: 6px;
+	box-shadow: 0px 0px 0px 1px white;
+}
+
+#sign-in-button {
+	border-radius: 6px;
+	box-shadow: 0px 0px 0px 1px white;
+}

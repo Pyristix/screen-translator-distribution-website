@@ -2,6 +2,11 @@ doctype html
 html
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/top_bar_style.css')
+    link(rel='icon', href='/images/icon.png')
   body
+    div(class='top-bar')
+      a(href='https://google.com', class='top-bar-item home-button') Screen Translator 
+      a#sign-up-button(href='https://google.com', class='top-bar-item right-side-item button') Sign up
+      a#sign-in-button(href='https://google.com', class='top-bar-item right-side-item button') Sign in 
     block content
