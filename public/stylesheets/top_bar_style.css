@@ -38,3 +38,8 @@ html, body {
 	border-radius: 6px;
 	box-shadow: 0px 0px 0px 1px white;
 }
+
+#log-out-button {
+	border-radius: 6px;
+	box-shadow: 0px 0px 0px 1px red;
+}

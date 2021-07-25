@@ -1,0 +1,26 @@
+.centered {
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, 0%);
+	font-family: calibri;
+	
+}
+
+h1.centered {
+	top: 150px;
+}
+
+p.centered {
+	top: 200px;
+}
+
+a.centered {
+	top: 350px;
+	padding: 20px;
+	padding-left: 30px;
+	padding-right: 30px;
+	color: white;
+	background-color: blue;
+	border-radius: 30px;
+	text-decoration: none;
+}
