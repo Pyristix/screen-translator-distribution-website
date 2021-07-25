@@ -1,20 +1,16 @@
-.centered {
-	position: absolute;
-	left: 50%;
-	transform: translate(-50%, 0%);
+* {
 	font-family: calibri;
-	
 }
 
-h1.centered {
+h1 {
 	top: 150px;
 }
 
-p.centered {
+p {
 	top: 200px;
 }
 
-a.centered {
+a.download-link {
 	top: 350px;
 	padding: 20px;
 	padding-left: 30px;
@@ -23,4 +19,10 @@ a.centered {
 	background-color: blue;
 	border-radius: 30px;
 	text-decoration: none;
+}
+
+.centered {
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%);
 }

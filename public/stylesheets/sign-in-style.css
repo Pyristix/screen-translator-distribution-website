@@ -1,0 +1,49 @@
+* {
+	font-family: calibri;
+}
+
+button {
+	top: 315px;
+	width: 150px;
+	padding: 10px;
+	padding-left: 30px;
+	padding-right: 30px;
+	color: white;
+	background-color: blue;
+	border-radius: 5px;
+	border: none;
+}
+
+h1 {
+	top: 125px;
+}
+
+input.form-control {
+	margin-top: 5px;
+	height: 25px;
+	width: 200px;
+	
+}
+
+div.sign-in-background {
+	position: absolute;
+	width: 275px;
+	height: 250px;
+	top: 200px;
+	border-radius: 15px;
+	background-color: silver;
+}
+
+.centered {
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%);
+}
+
+#username-area {
+	top: 150px;
+}
+
+#password-area {
+	top: 225px;
+}

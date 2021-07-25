@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  link(rel='stylesheet', href='/stylesheets/sign-in-style.css')
+  if signing_up
+    h1.centered Sign up
+  else
+    h1.centered Sign in
+
+  div.sign-in-background.centered
+  form.centered(method='POST' action='')
+    div.centered#username-area
+      label(for='username') Username:
+      input.form-control(type='text' name='username' required='true' value=(undefined===entered_username ? '' : entered_username) )
+    div.centered#password-area
+      label(for='password') Password:
+      input.form-control(type='password' name='password' required='true')
+    if signing_up
+      button.centered(type='submit') Sign up
+    else
+      button.centered(type='submit') Sign in
+  if errors
+    ul
+      for error in errors
+        li!= error.msg
