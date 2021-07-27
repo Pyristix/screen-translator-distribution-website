@@ -3,8 +3,8 @@
 }
 
 button {
-	top: 315px;
-	width: 150px;
+	top: 100px;
+	width: 200px;
 	padding: 10px;
 	padding-left: 30px;
 	padding-right: 30px;
@@ -16,6 +16,18 @@ button {
 
 h1 {
 	top: 125px;
+}
+
+h3 {
+	top: 200px;
+}
+
+form {
+	top: 275px;
+}
+
+label {
+	display: block;
 }
 
 input.form-control {

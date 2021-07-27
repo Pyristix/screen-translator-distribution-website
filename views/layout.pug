@@ -8,8 +8,8 @@ html
     div(class='top-bar')
       a(href='/', class='top-bar-item home-button') Screen Translator
       if username
-        a#log-out-button(href='https://google.com', class='top-bar-item right-side-item button') Log out
-        a(href='https://google.com', class='top-bar-item right-side-item button') Hi, #{username}!
+        a#log-out-button(href='/logout', class='top-bar-item right-side-item button') Log out
+        a(href='/profile', class='top-bar-item right-side-item button') Hi, #{username}!
       else 
         a#sign-up-button(href='/sign_up', class='top-bar-item right-side-item outlined-button') Sign up
         a#sign-in-button(href='/sign_in', class='top-bar-item right-side-item outlined-button') Sign in 

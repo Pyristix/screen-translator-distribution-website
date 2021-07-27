@@ -1,13 +1,14 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const mysql = require('mysql');
+const sql_connection_settings = require('./sql_connection_settings.js');
+const express = require('express');
+const session = require('express-session');
+const createError = require('http-errors');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const indexRouter = require('./routes/index');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-
-var app = express();
+const app = express();
 
 //View engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -22,6 +23,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //Setting indexRouter to base path
 app.use('/', indexRouter);
+
+//Creates connection to SQL database
+const connection = mysql.createConnection(sql_connection_settings.connection_settings);
+
+connection.connect((err) => {
+  if (err) throw err;
+  console.log('Connected to MySQL Server!');
+});
 
 //Catch 404 and forward to error handler
 app.use(function(req, res, next) {
