@@ -1,4 +1,5 @@
 const mysql = require('mysql');
+const sql_connection_settings = require('../sql_connection_settings.js');
 const bcrypt = require('bcrypt');
 
 exports.sign_in_get = function (req, res) {

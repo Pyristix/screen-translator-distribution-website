@@ -1,5 +1,3 @@
-const mysql = require('mysql');
-const sql_connection_settings = require('./sql_connection_settings.js');
 const express = require('express');
 const session = require('express-session');
 const createError = require('http-errors');
@@ -23,14 +21,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //Setting indexRouter to base path
 app.use('/', indexRouter);
-
-//Creates connection to SQL database
-const connection = mysql.createConnection(sql_connection_settings.connection_settings);
-
-connection.connect((err) => {
-  if (err) throw err;
-  console.log('Connected to MySQL Server!');
-});
 
 //Catch 404 and forward to error handler
 app.use(function(req, res, next) {
