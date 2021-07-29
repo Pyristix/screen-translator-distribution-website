@@ -10,3 +10,5 @@ block content
     label(for='password') New Password:
     input.form-control(type='password' name='password' required='true')
     button.centered(type='submit') Change Password
+  if input_error
+    p.centered#input-error-message= input_error

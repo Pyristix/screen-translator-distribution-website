@@ -27,8 +27,8 @@ input.form-control {
 
 div.sign-in-background {
 	position: absolute;
-	width: 275px;
-	height: 250px;
+	width: 300px;
+	height: 270px;
 	top: 200px;
 	border-radius: 15px;
 	background-color: #e1eaf7;
@@ -46,4 +46,9 @@ div.sign-in-background {
 
 #password-area {
 	top: 225px;
+}
+
+#input-error-message {
+	top: 340px;
+	color: red;
 }

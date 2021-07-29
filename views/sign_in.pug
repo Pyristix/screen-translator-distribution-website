@@ -19,6 +19,8 @@ block content
       button.centered(type='submit') Sign up
     else
       button.centered(type='submit') Sign in
+  if input_error
+    p.centered#input-error-message= input_error
   if errors
     ul
       for error in errors
