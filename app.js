@@ -1,5 +1,6 @@
 const express = require('express');
 const session = require('express-session');
+const session_configurations = require('./session_configurations.js')
 const createError = require('http-errors');
 const path = require('path');
 const cookieParser = require('cookie-parser');
@@ -18,6 +19,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(session(process.env.session_configurations || session_configurations.session_configurations))
 
 //Setting indexRouter to base path
 app.use('/', indexRouter);

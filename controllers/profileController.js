@@ -4,7 +4,10 @@ const bcrypt = require('bcrypt');
 const {body, validationResult} = require('express-validator');
 
 exports.profile_get = function (req, res) {
-	res.render('profile', {username: "TestName"});
+	if(!req.session.username)
+		res.redirect('/');
+	else
+		res.render('profile', {username: req.session.username});
 };
 
 exports.profile_post = [
@@ -14,7 +17,7 @@ exports.profile_post = [
 		
 		if(!errors.isEmpty()){
 			console.log(errors.errors[0].msg);
-			res.render('profile', {signing_up: true, input_error: errors.errors[0].msg});
+			res.render('profile', {username: req.session.username, input_error: errors.errors[0].msg});
 		}
 		
 		else{
@@ -32,8 +35,8 @@ exports.profile_post = [
 			bcrypt.genSalt(10, (err, salt) => {
 				//Hash password using generated salt
 				bcrypt.hash(req.body.password, salt, (err, hash) => {
-					//Insert username, password hash, and hash salt into MySQL database
-					connection.query('UPDATE st_account_users SET password_hash=?, hash_salt=? WHERE username=?', [hash, salt, /*TODO: Session Username */], (error, results, fields) => {
+					//Update password hash and hash salt in MySQL database
+					connection.query('UPDATE st_account_users SET password_hash=?, hash_salt=? WHERE username=?', [hash, salt, req.session.username], (error, results, fields) => {
 						if(error)
 							console.log(error);
 						console.log("Successfully changed password")
@@ -46,7 +49,7 @@ exports.profile_post = [
 					})
 				});
 			});
-			res.render('homepage');
+			res.redirect('/');
 		}
 	}
 ];

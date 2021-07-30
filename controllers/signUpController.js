@@ -4,7 +4,10 @@ const bcrypt = require('bcrypt');
 const {body, validationResult} = require('express-validator');
 
 exports.sign_up_get = function (req, res) {
-	res.render('sign_in', {signing_up: true});
+	if(req.session.username)
+		res.redirect('/');
+	else
+		res.render('sign_in', {signing_up: true});
 };
 
 exports.sign_up_post = [
@@ -58,7 +61,7 @@ exports.sign_up_post = [
 						});
 					});
 					
-					res.render('homepage');
+					res.redirect('/');
 				}
 				else{
 					console.log('Username already taken');

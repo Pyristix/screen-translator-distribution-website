@@ -3,7 +3,10 @@ const sql_connection_settings = require('../sql_connection_settings.js');
 const bcrypt = require('bcrypt');
 
 exports.sign_in_get = function (req, res) {
-	res.render('sign_in', {signing_up: false, username: "test"});
+	if(req.session.username)
+		res.redirect('/');
+	else
+		res.render('sign_in', {signing_up: false});
 };
 
 exports.sign_in_post = 	(req, res, next) => {
@@ -32,11 +35,12 @@ exports.sign_in_post = 	(req, res, next) => {
 				if(err)
 					console.log(err)
 				if(result){
-					console.log("Logged in");
-					//TODO: Implement session logic here
+					console.log("Successfully signed in: " + req.body.username);
+					req.session.username = req.body.username;
+					res.redirect('/');
 				} 
 				else 
-					res.render('sign_in', {signing_up: true, input_error: "Password is incorrect"});
+					res.render('sign_in', {signing_up: false, input_error: "Password is incorrect"});
 				
 				connection.end((err) => {
 					if (err)
@@ -54,7 +58,7 @@ exports.sign_in_post = 	(req, res, next) => {
 				console.log('SQL Connection Successfully Terminated')
 			});
 			
-			res.render('sign_in', {signing_up: true, input_error: "User doesn't exist"});
+			res.render('sign_in', {signing_up: false, input_error: "User doesn't exist"});
 		}
 	});
 }

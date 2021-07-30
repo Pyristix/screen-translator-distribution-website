@@ -7,15 +7,16 @@ const profile_controller = require('../controllers/profileController.js')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('homepage'/*, {username: 'TestUsername'}*/);
+	res.render('homepage', {username: req.session.username});
 });
 
 router.get('/download', function(req, res, next) {
-  res.download("./dist/screen-translator-1.0.0.exe");
+	res.download("./dist/screen-translator-1.0.0.exe");
 });
 
 router.get('/logout', function(req, res, next) {
-  res.render('logout');
+	req.session.username = '';
+	res.redirect('/');
 });
 
 router.get('/sign_in', sign_in_controller.sign_in_get);
